@@ -6,22 +6,35 @@ dotenv.config() // Load environment variables from .env file
 export const config = {
   ...sharedConfig,
   port: 4723,
+  // port: 4724, //! changed (not helping)
   services: ['appium'],
   appium: {
     // For options see
     // https://github.com/webdriverio/webdriverio/tree/master/packages/wdio-appium-service
-    args: ['--allow-insecure'],
+    args: ['--allow-insecure', '--debug-log-spacing'], //! new
+    // args: {debugLogSpacing: true},
   },
   capabilities: [
     {
-      // capabilities for local Appium web tests on an Android Emulator or Real device
       platformName: 'Android',
-      'appium:platformVersion': '11',
-      'appium:automationName': 'UiAutomator2',
       'appium:deviceName': 'VKHINVIFKZWWVW4L',
-      'appium:app': join(process.cwd(), './apps/android/app-staging-debug.apk'),
+      // 'appium:deviceName': 'realme 8i',
+      'appium:app': join(
+        process.cwd(),
+        './apps/android/All_Unit_Converter_&_Tools_base.apk'
+      ),
+      'appium:platformVersion': '11.0',
+      'appium:automationName': 'UiAutomator2',
+
+      'appium:newCommandTimeout': 0,
+
+      //! prevents opening the app before each test
+      // 'appium:noReset': false,
+      // 'appium:fullReset': true,
       // appPackage: 'com.digitalindeed.converter',
       // appActivity: 'com.digitalindeed.converter.NewMainActivity',
+      // uninstallOtherPackages: '*',
+      // 'appium:skipServerInstallation': true,
     },
   ],
 }
