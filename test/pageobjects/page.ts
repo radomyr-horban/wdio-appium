@@ -14,12 +14,9 @@ export default class Page {
   // public async getElement(element: string) {
   //   const elem = await $(element)
 
-  //   if (elem) {
-  //     console.log('elem = ' + element)
-  //     return elem
-  //   } else {
-  //     throw new Error('No element found with the specified selector.')
-  //   }
+  //   return elem
+  //     ? elem
+  //     : new Error('No element found with the specified selector.')
   // }
 
   //! error

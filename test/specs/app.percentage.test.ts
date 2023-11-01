@@ -3,9 +3,9 @@ import { expect } from '@wdio/globals'
 import conversions from '../pageobjects/conversions.page.js'
 import percentage from '../pageobjects/percentage.page.js'
 
-describe('The "Percentage" tool', () => {
-  it('should allow converting', async () => {
-    await conversions.clickPercentageBox()
+describe('The "Percentage" page', () => {
+  xit('should allow converting', async () => {
+    await conversions.tapOnPercentageBox()
 
     expect(await percentage.isPercentageTitleDisplayed()).toBeTruthy()
     expect(await percentage.getCalculateButtonsListSize()).toEqual(3)

@@ -1,11 +1,11 @@
-import { expect } from '@wdio/globals'
+// import { expect } from '@wdio/globals'
 
-import area from '../pageobjects/area.page.js'
-import calculator from '../pageobjects/calculator.page.js'
-import calender from '../pageobjects/calender.page.js'
-import conversions from '../pageobjects/conversions.page.js'
-import percentage from '../pageobjects/percentage.page.js'
-import tools from '../pageobjects/tools.page.js'
+// import area from '../pageobjects/area.page.js'
+// import calculator from '../pageobjects/calculator.page.js'
+// import calender from '../pageobjects/calender.page.js'
+// import conversions from '../pageobjects/conversions.page.js'
+// import percentage from '../pageobjects/percentage.page.js'
+// import tools from '../pageobjects/tools.page.js'
 
 // const signUpBtnIos = '~just-example'
 // const percentageTitleIos = '~just-example-label'
@@ -18,14 +18,3 @@ import tools from '../pageobjects/tools.page.js'
 // Jest
 // expect(await percentage.getResultFieldValue(1)).toBe('10.0')
 //   })
-
-// it('should allow converting in the “Area” tool', async () => {})
-
-// it('should display main elements in the “Calender” tool', async () => {
-//   await conversions.clickToolsButton(signUpBtnIos)
-// })
-
-// it('should allow adding in the “Scientific Calculator” tool', async () => {})
-
-// it('should allow subtracting in the “Scientific Calculator” tool', async () => {})
-// })

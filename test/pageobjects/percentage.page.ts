@@ -84,8 +84,11 @@ class Percentage extends Page {
       : await this.getListSize(SELECTORS.IOS.CALCULATE_BUTTON_LIST)
   }
 
-  public async tapOnInput(element: string): Promise<void> {
-    await this.clickElement(element)
+  //! check
+  public async tapOnInput(index: number): Promise<void> {
+    browser.isAndroid
+      ? await this.clickElement(SELECTORS.ANDROID.INPUT_FIELD[index])
+      : await this.clickElement(SELECTORS.IOS.INPUT_FIELD[index])
   }
 
   public async tapOnCalculateButton(index: number): Promise<void> {
@@ -95,7 +98,8 @@ class Percentage extends Page {
   }
 
   public async setInputFieldValue(index: number, value: number): Promise<void> {
-    await this.tapOnInput(SELECTORS.ANDROID.INPUT_FIELD[index])
+    await this.tapOnInput(index) //! check
+
     browser.isAndroid
       ? await this.setElementInputValue(
           SELECTORS.ANDROID.INPUT_FIELD[index],
