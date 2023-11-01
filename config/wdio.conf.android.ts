@@ -5,8 +5,8 @@ dotenv.config() // Load environment variables from .env file
 
 export const config = {
   ...sharedConfig,
-  port: 4723,
-  // port: 4724, //! changed (not helping)
+  // port: 4723,
+  port: 4724, //! changed (not helping)
   services: ['appium'],
   appium: {
     // For options see

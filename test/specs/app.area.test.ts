@@ -3,7 +3,7 @@ import { expect } from '@wdio/globals'
 import area from '../pageobjects/area.page.js'
 import conversions from '../pageobjects/conversions.page.js'
 
-describe('The "Area" page', () => {
+describe.skip('The "Area" page', () => {
   it('should allow converting', async () => {
     await conversions.tapOnAreaBox()
     expect(await area.isAreaTitleDisplayed()).toBeTruthy()

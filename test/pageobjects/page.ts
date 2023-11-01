@@ -67,6 +67,11 @@ export default class Page {
     const elem = await this.getElement(element)
     return elem.isClickable()
   }
+  //! new
+  public async isElementSelected(element: string): Promise<boolean> {
+    const elem = await this.getElement(element)
+    return elem.isSelected()
+  }
 
   public async isElementByIndexDisplayed(
     element: string,

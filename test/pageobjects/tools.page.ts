@@ -11,32 +11,38 @@ const SELECTORS = {
     CALCULATOR_BOX:
       '//android.widget.FrameLayout[@resource-id="com.digitalindeed.converter:id/card_scientific_calc"]/android.widget.ImageView',
   },
-  IOS: {},
+  IOS: {
+    CONVERSIONS_BUTTON: '~ios',
+    TOOLS_BUTTON: '~ios',
+
+    CALENDAR_BOX: '~ios',
+    CALCULATOR_BOX: '~ios',
+  },
 }
 
 class Tools extends Page {
   public async isCalendarBoxDisplayed(): Promise<boolean> {
     return browser.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.CALENDAR_BOX)
-      : await this.isElementDisplayed(SELECTORS.ANDROID.CALENDAR_BOX)
+      : await this.isElementDisplayed(SELECTORS.IOS.CALENDAR_BOX)
   }
 
   public async isCalculatorBoxDisplayed(): Promise<boolean> {
     return browser.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.CALCULATOR_BOX)
-      : await this.isElementDisplayed(SELECTORS.ANDROID.CALCULATOR_BOX)
+      : await this.isElementDisplayed(SELECTORS.IOS.CALCULATOR_BOX)
   }
 
   public async tapOnCalendarBox(): Promise<void> {
     browser.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.CALENDAR_BOX)
-      : await this.clickElement(SELECTORS.ANDROID.CALENDAR_BOX)
+      : await this.clickElement(SELECTORS.IOS.CALENDAR_BOX)
   }
 
   public async tapOnCalculatorBox(): Promise<void> {
     browser.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.CALCULATOR_BOX)
-      : await this.clickElement(SELECTORS.ANDROID.CALCULATOR_BOX)
+      : await this.clickElement(SELECTORS.IOS.CALCULATOR_BOX)
   }
 }
 
