@@ -49,25 +49,25 @@ const SELECTORS = {
 
 class Percentage extends Page {
   public async isPercentageTitleDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.TITLE)
       : await this.isElementDisplayed(SELECTORS.IOS.TITLE)
   }
 
   public async getCalculateButtonsListSize(): Promise<number> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.getListSize(SELECTORS.ANDROID.CALCULATE_BUTTON_LIST)
       : await this.getListSize(SELECTORS.IOS.CALCULATE_BUTTON_LIST)
   }
 
   public async tapOnInput(index: number): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.INPUT_FIELD[index])
       : await this.clickElement(SELECTORS.IOS.INPUT_FIELD[index])
   }
 
   public async tapOnCalculateButton(index: number): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.CALCULATE_BUTTON[index])
       : await this.clickElement(SELECTORS.IOS.CALCULATE_BUTTON[index])
   }
@@ -75,7 +75,7 @@ class Percentage extends Page {
   public async setInputFieldValue(index: number, value: number): Promise<void> {
     await this.tapOnInput(index)
 
-    browser.isAndroid
+    driver.isAndroid
       ? await this.setElementInputValue(
           SELECTORS.ANDROID.INPUT_FIELD[index],
           value
@@ -84,7 +84,7 @@ class Percentage extends Page {
   }
 
   public async getAnswerFieldValue(index: number): Promise<string> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.getElementText(SELECTORS.ANDROID.ANSWER_FIELD[index])
       : await this.getElementText(SELECTORS.IOS.ANSWER_FIELD[index])
   }

@@ -12,8 +12,8 @@ describe('The "Area" page', () => {
     expect(await area.isFromTextDisplayed()).toBeTruthy()
     expect(await area.isToTextDisplayed()).toBeTruthy()
 
-    await area.selectFromOption()
-    await area.selectToOption()
+    await area.selectFromOption('Sq Metre')
+    await area.selectToOption('Sq Centimetre')
     await area.setInputFieldValue(10)
     expect(await area.getAnswerFieldValue()).toBe('100000')
 

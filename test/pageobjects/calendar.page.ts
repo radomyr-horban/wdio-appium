@@ -1,4 +1,4 @@
-import { browser } from '@wdio/globals'
+import { driver } from '@wdio/globals'
 import Page from './page.js'
 
 const SELECTORS = {
@@ -18,35 +18,35 @@ const SELECTORS = {
 
 class Calender extends Page {
   public async isTitleDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.TITLE)
       : await this.isElementDisplayed(SELECTORS.IOS.TITLE)
   }
   public async isMonthViewBoxDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.MONTH_VIEW_BOX)
       : await this.isElementDisplayed(SELECTORS.IOS.MONTH_VIEW_BOX)
   }
 
   public async isPreviousMonthButtonDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.PREVIOUS_MONTH_BUTTON)
       : await this.isElementDisplayed(SELECTORS.IOS.PREVIOUS_MONTH_BUTTON)
   }
   public async isNextMonthButtonDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.NEXT_MONTH_BUTTON)
       : await this.isElementDisplayed(SELECTORS.IOS.NEXT_MONTH_BUTTON)
   }
 
   public async tapOnPreviousMonthButton(): Promise<void> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.PREVIOUS_MONTH_BUTTON)
       : await this.clickElement(SELECTORS.IOS.PREVIOUS_MONTH_BUTTON)
   }
 
   public async tapOnNextMonthButton(): Promise<void> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.NEXT_MONTH_BUTTON)
       : await this.clickElement(SELECTORS.IOS.NEXT_MONTH_BUTTON)
   }

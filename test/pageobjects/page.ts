@@ -1,4 +1,4 @@
-import { browser, $, $$ } from '@wdio/globals'
+import { driver, $, $$ } from '@wdio/globals'
 
 /**
  * main page object containing all methods, selectors and functionality
@@ -71,7 +71,7 @@ export default class Page {
   }
 
   public async waitUntilElementDisplayed(element: string): Promise<void> {
-    await browser.waitUntil(() => {
+    await driver.waitUntil(() => {
       return this.isElementDisplayed(element)
     })
   }
@@ -80,7 +80,7 @@ export default class Page {
     element: string,
     index: number
   ) {
-    await browser.waitUntil(() => {
+    await driver.waitUntil(() => {
       return this.isElementByIndexDisplayed(element, index)
     })
   }
@@ -138,57 +138,57 @@ export default class Page {
   }
 
   public async hideKeyboard(): Promise<void> {
-    await browser.pressKeyCode(4)
+    await driver.pressKeyCode(4)
   }
 
   public async waitForAlert(): Promise<void> {
-    await browser.waitUntil(() => {
-      return browser.getAlertText() !== null
+    await driver.waitUntil(() => {
+      return driver.getAlertText() !== null
     })
   }
 
   public async waitNoAlert(): Promise<void> {
-    await browser.waitUntil(() => {
-      return browser.getAlertText() == null
+    await driver.waitUntil(() => {
+      return driver.getAlertText() == null
     })
   }
 
   public async getAlertText(): Promise<string | undefined> {
-    if (browser.isMobile) {
+    if (driver.isMobile) {
       await this.waitForAlert()
-      return browser.getAlertText()
+      return driver.getAlertText()
     }
   }
 
   public async waitForAlertText(text: string): Promise<void> {
-    await browser.waitUntil(async () => {
-      const text = await browser.getAlertText()
+    await driver.waitUntil(async () => {
+      const text = await driver.getAlertText()
       return text.includes(text)
     })
   }
 
   public async clickAcceptAlert(): Promise<void> {
-    if (browser.isMobile) {
-      if (browser.isAndroid) {
+    if (driver.isMobile) {
+      if (driver.isAndroid) {
         await this.waitForAlert()
-        await browser.acceptAlert()
+        await driver.acceptAlert()
       }
-      if (browser.isIOS) {
+      if (driver.isIOS) {
         await this.waitForAlert()
-        await browser.dismissAlert()
+        await driver.dismissAlert()
       }
     }
   }
 
   public async clickCancelAlert(): Promise<void> {
-    if (browser.isMobile) {
-      if (browser.isAndroid) {
+    if (driver.isMobile) {
+      if (driver.isAndroid) {
         await this.waitForAlert()
-        await browser.dismissAlert()
+        await driver.dismissAlert()
       }
-      if (browser.isIOS) {
+      if (driver.isIOS) {
         await this.waitForAlert()
-        await browser.acceptAlert()
+        await driver.acceptAlert()
       }
     }
   }
@@ -203,6 +203,6 @@ export default class Page {
   }
 
   public async clickAndroidBackBtn(): Promise<void> {
-    await browser.pressKeyCode(4)
+    await driver.pressKeyCode(4)
   }
 }

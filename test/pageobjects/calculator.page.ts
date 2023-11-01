@@ -1,4 +1,4 @@
-import { browser } from '@wdio/globals'
+import { driver } from '@wdio/globals'
 import Page from './page.js'
 
 const SELECTORS = {
@@ -20,23 +20,23 @@ const SELECTORS = {
 
 class Calculator extends Page {
   public async isTitleDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.TITLE)
       : await this.isElementDisplayed(SELECTORS.IOS.TITLE)
   }
   public async isUpperInputFieldDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.UPPER_INPUT_FIELD)
       : await this.isElementDisplayed(SELECTORS.IOS.UPPER_INPUT_FIELD)
   }
   public async isBottomInputFieldDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.BOTTOM_INPUT_FIELD)
       : await this.isElementDisplayed(SELECTORS.IOS.BOTTOM_INPUT_FIELD)
   }
 
   public async tapOnDigit(digit: number): Promise<void> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.DIGIT_BUTTON + digit)
       : await this.clickElement(SELECTORS.IOS.DIGIT_BUTTON + digit)
   }
@@ -49,18 +49,18 @@ class Calculator extends Page {
   }
 
   public async tapOnButton(button: string): Promise<void> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.SIGN_BUTTON + button)
       : await this.clickElement(SELECTORS.IOS.SIGN_BUTTON + button)
   }
 
   public async getBottomInputFieldValue(): Promise<string> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.getElementText(SELECTORS.ANDROID.BOTTOM_INPUT_FIELD)
       : await this.getElementText(SELECTORS.IOS.BOTTOM_INPUT_FIELD)
   }
   public async getUpperInputFieldValue(): Promise<string> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.getElementText(SELECTORS.ANDROID.UPPER_INPUT_FIELD)
       : await this.getElementText(SELECTORS.IOS.UPPER_INPUT_FIELD)
   }

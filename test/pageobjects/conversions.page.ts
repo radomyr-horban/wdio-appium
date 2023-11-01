@@ -1,4 +1,4 @@
-import { browser } from '@wdio/globals'
+import { driver } from '@wdio/globals'
 import Page from './page.js'
 
 const SELECTORS = {
@@ -22,29 +22,29 @@ const SELECTORS = {
 
 class Conversions extends Page {
   public async tapOnToolsButton(): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.TOOLS_BUTTON)
       : await this.clickElement(SELECTORS.IOS.TOOLS_BUTTON)
   }
 
   public async tapOnPercentageBox(): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.PERCENTAGE_BOX)
       : await this.clickElement(SELECTORS.IOS.PERCENTAGE_BOX)
   }
   public async tapOnAreaBox(): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.AREA_BOX)
       : await this.clickElement(SELECTORS.IOS.AREA_BOX)
   }
 
   public async isConversionsButtonSelected(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementSelected(SELECTORS.ANDROID.CONVERSIONS_BUTTON)
       : await this.isElementSelected(SELECTORS.IOS.CONVERSIONS_BUTTON)
   }
   public async isToolsButtonSelected(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementSelected(SELECTORS.ANDROID.TOOLS_BUTTON)
       : await this.isElementSelected(SELECTORS.IOS.TOOLS_BUTTON)
   }

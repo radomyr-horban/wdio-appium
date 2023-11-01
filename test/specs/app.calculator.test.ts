@@ -1,4 +1,4 @@
-import { expect, browser } from '@wdio/globals'
+import { expect, driver } from '@wdio/globals'
 
 import calculator from '../pageobjects/calculator.page.js'
 import conversions from '../pageobjects/conversions.page.js'
@@ -28,7 +28,7 @@ describe('The "Scientific Calculator" page', () => {
     await calculator.tapOnButton('equal')
     expect(await calculator.getBottomInputFieldValue()).toBe('15.0')
 
-    await browser.reloadSession()
+    await driver.reloadSession()
   })
 
   it('should allow subtracting ', async () => {

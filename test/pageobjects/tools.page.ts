@@ -1,4 +1,4 @@
-import { browser } from '@wdio/globals'
+import { driver } from '@wdio/globals'
 import Page from './page.js'
 
 const SELECTORS = {
@@ -22,25 +22,25 @@ const SELECTORS = {
 
 class Tools extends Page {
   public async isCalendarBoxDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.CALENDAR_BOX)
       : await this.isElementDisplayed(SELECTORS.IOS.CALENDAR_BOX)
   }
 
   public async isCalculatorBoxDisplayed(): Promise<boolean> {
-    return browser.isAndroid
+    return driver.isAndroid
       ? await this.isElementDisplayed(SELECTORS.ANDROID.CALCULATOR_BOX)
       : await this.isElementDisplayed(SELECTORS.IOS.CALCULATOR_BOX)
   }
 
   public async tapOnCalendarBox(): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.CALENDAR_BOX)
       : await this.clickElement(SELECTORS.IOS.CALENDAR_BOX)
   }
 
   public async tapOnCalculatorBox(): Promise<void> {
-    browser.isAndroid
+    driver.isAndroid
       ? await this.clickElement(SELECTORS.ANDROID.CALCULATOR_BOX)
       : await this.clickElement(SELECTORS.IOS.CALCULATOR_BOX)
   }

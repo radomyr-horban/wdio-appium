@@ -26,7 +26,7 @@ e2e-test template with hybrid mob apps
 ### How to run the android tests on windows
 
 ```sh
-
+npm run test:android
 ```
 
 We defined a default configuration (config/wdio.android.conf.js) for Android which will be executed when you run "npm run test:android".
