@@ -3,9 +3,11 @@ import { expect } from '@wdio/globals'
 import area from '../pageobjects/area.page.js'
 import conversions from '../pageobjects/conversions.page.js'
 
-describe.skip('The "Area" page', () => {
+describe('The "Area" page', () => {
   it('should allow converting', async () => {
+    expect(await conversions.isConversionsButtonSelected()).toBeTruthy()
     await conversions.tapOnAreaBox()
+
     expect(await area.isAreaTitleDisplayed()).toBeTruthy()
     expect(await area.isFromTextDisplayed()).toBeTruthy()
     expect(await area.isToTextDisplayed()).toBeTruthy()

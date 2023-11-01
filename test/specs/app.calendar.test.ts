@@ -4,9 +4,10 @@ import conversions from '../pageobjects/conversions.page.js'
 import calendar from '../pageobjects/calendar.page.js'
 import tools from '../pageobjects/tools.page.js'
 
-describe.skip('The "Calendar" page', () => {
+describe('The "Calendar" page', () => {
   it('should display main elements', async () => {
     await conversions.tapOnToolsButton()
+    expect(await conversions.isToolsButtonSelected()).toBeTruthy()
     await tools.tapOnCalendarBox()
 
     expect(await calendar.isTitleDisplayed()).toBeTruthy()

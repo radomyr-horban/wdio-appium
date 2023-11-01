@@ -3,8 +3,9 @@ import { expect } from '@wdio/globals'
 import conversions from '../pageobjects/conversions.page.js'
 import percentage from '../pageobjects/percentage.page.js'
 
-describe.skip('The "Percentage" page', () => {
+describe('The "Percentage" page', () => {
   it('should allow converting', async () => {
+    expect(await conversions.isConversionsButtonSelected()).toBeTruthy()
     await conversions.tapOnPercentageBox()
 
     expect(await percentage.isPercentageTitleDisplayed()).toBeTruthy()

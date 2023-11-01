@@ -37,6 +37,17 @@ class Conversions extends Page {
       ? await this.clickElement(SELECTORS.ANDROID.AREA_BOX)
       : await this.clickElement(SELECTORS.IOS.AREA_BOX)
   }
+
+  public async isConversionsButtonSelected(): Promise<boolean> {
+    return browser.isAndroid
+      ? await this.isElementSelected(SELECTORS.ANDROID.CONVERSIONS_BUTTON)
+      : await this.isElementSelected(SELECTORS.IOS.CONVERSIONS_BUTTON)
+  }
+  public async isToolsButtonSelected(): Promise<boolean> {
+    return browser.isAndroid
+      ? await this.isElementSelected(SELECTORS.ANDROID.TOOLS_BUTTON)
+      : await this.isElementSelected(SELECTORS.IOS.TOOLS_BUTTON)
+  }
 }
 
 export default new Conversions()

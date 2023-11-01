@@ -10,18 +10,8 @@ export default class Page {
   public async getElement(element: string) {
     return $(element)
   }
-  //! error
-  // public async getElement(element: string) {
-  //   const elem = await $(element)
 
-  //   return elem
-  //     ? elem
-  //     : new Error('No element found with the specified selector.')
-  // }
-
-  //! error
   public async getAllElements(element: string) {
-    console.log('elements.length = ' + (await $$(element).length))
     return $$(element)
   }
 
@@ -30,19 +20,10 @@ export default class Page {
     await elem.scrollIntoView()
   }
 
-  // public async isListSizeValid(
-  //   elements: string,
-  //   listSize: number
-  // ): Promise<void> {
-  //   const elementsList = await this.getAllElements(elements)
-  //   return expect(elements).toBeElementsArrayOfSize(3)
-  // }
-
   public async getListSize(element: string): Promise<number> {
     const elements = await this.getAllElements(element)
 
     if (elements && elements.length > 0) {
-      console.log('elements.length = ' + elements.length)
       return elements.length
     } else {
       throw new Error('No elements found with the specified selector.')
@@ -67,7 +48,7 @@ export default class Page {
     const elem = await this.getElement(element)
     return elem.isClickable()
   }
-  //! new
+
   public async isElementSelected(element: string): Promise<boolean> {
     const elem = await this.getElement(element)
     return elem.isSelected()
@@ -106,11 +87,7 @@ export default class Page {
 
   public async getElementText(element: string): Promise<string> {
     await this.waitUntilElementDisplayed(element)
-    // await this.scrollElementIntoView(element)
-
     const elem = await this.getElement(element)
-    console.log('text = ' + (await elem.getAttribute('text')))
-
     // return elem.getText()
     return elem.getAttribute('text')
   }
@@ -159,14 +136,6 @@ export default class Page {
     const elem = await this.getElementByIndex(element, index)
     await elem.click()
   }
-
-  // public async scrollElementIntoViewByIndex(
-  //   element: string,
-  //   index: number
-  // ): Promise<void> {
-  //   const elem = await this.getElementByIndex(element, index)
-  //   await elem.scrollIntoView()
-  // }
 
   public async hideKeyboard(): Promise<void> {
     await browser.pressKeyCode(4)

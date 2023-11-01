@@ -1,13 +1,57 @@
-import { expect } from '@wdio/globals'
+import { expect, browser } from '@wdio/globals'
 
 import calculator from '../pageobjects/calculator.page.js'
+import conversions from '../pageobjects/conversions.page.js'
 import tools from '../pageobjects/tools.page.js'
 
-describe.skip('The "Scientific Calculator" page', () => {
+describe('The "Scientific Calculator" page', () => {
   it('should allow adding', async () => {
-    // await tools.clickPercentageBox()
+    expect(await conversions.isConversionsButtonSelected()).toBeTruthy()
+    await conversions.tapOnToolsButton()
+    expect(await conversions.isToolsButtonSelected()).toBeTruthy()
 
-    expect(true).toBeTruthy()
+    await tools.tapOnCalculatorBox()
+
+    expect(await calculator.isTitleDisplayed()).toBeTruthy()
+    expect(await calculator.isUpperInputFieldDisplayed()).toBeTruthy()
+    expect(await calculator.isBottomInputFieldDisplayed()).toBeTruthy()
+
+    expect(await calculator.getBottomInputFieldValue()).toBe('0')
+    await calculator.tapOnButton('clear')
+    expect(await calculator.getBottomInputFieldValue()).toBe('')
+
+    await calculator.enterNumber(10)
+    await calculator.tapOnButton('plus')
+    expect(await calculator.getUpperInputFieldValue()).toBe('10+')
+
+    await calculator.enterNumber(5)
+    await calculator.tapOnButton('equal')
+    expect(await calculator.getBottomInputFieldValue()).toBe('15.0')
+
+    await browser.reloadSession()
   })
-  // it('should allow subtracting ', async () => {})
+
+  it('should allow subtracting ', async () => {
+    expect(await conversions.isConversionsButtonSelected()).toBeTruthy()
+    await conversions.tapOnToolsButton()
+    expect(await conversions.isToolsButtonSelected()).toBeTruthy()
+
+    await tools.tapOnCalculatorBox()
+
+    expect(await calculator.isTitleDisplayed()).toBeTruthy()
+    expect(await calculator.isUpperInputFieldDisplayed()).toBeTruthy()
+    expect(await calculator.isBottomInputFieldDisplayed()).toBeTruthy()
+
+    expect(await calculator.getBottomInputFieldValue()).toBe('0')
+    await calculator.tapOnButton('clear')
+    expect(await calculator.getBottomInputFieldValue()).toBe('')
+
+    await calculator.enterNumber(10)
+    await calculator.tapOnButton('minus')
+    expect(await calculator.getUpperInputFieldValue()).toBe('10-')
+
+    await calculator.enterNumber(5)
+    await calculator.tapOnButton('equal')
+    expect(await calculator.getBottomInputFieldValue()).toBe('5.0')
+  })
 })
