@@ -1,120 +1,113 @@
-// import { browser } from '@wdio/globals'
 import Page from './page.js'
 
-//! ios
-const signUpBtnIos = '~just-example'
-const percentageTitleIos = '~just-example-label'
-const calculateButtonListIos = '~just-example-label'
-
-//! android
-const percentageTitle = '//android.widget.TextView[@text="Percentage"]'
-const calculateButtonList = 'android.widget.Button'
-
-// const calculateButtonOne =
-//   '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_one"]'
-// const calculateButtonTwo =
-//   '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_two"]'
-// const calculateButtonThree =
-//   '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_three"]'
-
-//!inputs
-// const converterBlockOneInputOne =
-//   '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_input_one"]'
-// const converterBlockOneInputTwo =
-//   '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_input_two"]'
-
-// const converterBlockTwoInputOne =
-//   '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_input_one"]'
-// const converterBlockTwoInputTwo =
-//   '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_input_two"]'
-
-// const converterBlockThreeInputOne =
-//   '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_input_one"]'
-// const converterBlockThreeiIputTwo =
-//   '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_input_two"]'
-
-const inputFields = {
-  1: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_input_one"]',
-  2: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_input_two"]',
-  3: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_input_one"]',
-  4: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_input_two"]',
-  5: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_input_one"]',
-  6: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_input_two"]',
-}
-
-const calculateButtons = {
-  1: '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_one"]',
-  2: '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_two"]',
-  3: '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_three"]',
-}
-
-const resultFields = {
-  1: browser.isAndroid
-    ? '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_answer"]'
-    : '~ios',
-  2: browser.isAndroid
-    ? '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_answer"]'
-    : '~ios',
-  3: browser.isAndroid
-    ? '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_answer"]'
-    : '~ios',
+const SELECTORS = {
+  ANDROID: {
+    TITLE: '//android.widget.TextView[@text="Percentage"]',
+    CALCULATE_BUTTON_LIST: 'android.widget.Button',
+    CALCULATE_BUTTON: {
+      // calculateButtonOne:
+      1: '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_one"]',
+      // calculateButtonTwo:
+      2: '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_two"]',
+      // calculateButtonThree:
+      3: '//android.widget.Button[@resource-id="com.digitalindeed.converter:id/percentage_btn_calculate_three"]',
+    },
+    INPUT_FIELD: {
+      // blockOneInputOne:
+      1: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_input_one"]',
+      // blockOneInputTwo:
+      2: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_input_two"]',
+      // blockTwoInputOne:
+      3: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_input_one"]',
+      // blockTwoInputTwo:
+      4: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_input_two"]',
+      // blockThreeInputOne:
+      5: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_input_one"]',
+      // blockThreeInputTwo:
+      6: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_input_two"]',
+    },
+    ANSWER_FIELD: {
+      // answerFieldOne:
+      1: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_one_answer"]',
+      // answerFieldTwo:
+      2: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_two_answer"]',
+      // answerFieldThree:
+      3: '//android.widget.EditText[@resource-id="com.digitalindeed.converter:id/percentage_edt_three_answer"]',
+    },
+  },
+  IOS: {
+    TITLE: '~ios',
+    CALCULATE_BUTTON_LIST: '~ios',
+    CALCULATE_BUTTON: {
+      // calculateButtonOne:
+      1: '~ios',
+      // calculateButtonTwo:
+      2: '~ios',
+      // calculateButtonThree:
+      3: '~ios',
+    },
+    INPUT_FIELD: {
+      // blockOneInputOne:
+      1: '~ios',
+      // blockOneInputTwo:
+      2: '~ios',
+      // blockTwoInputOne:
+      3: '~ios',
+      // blockTwoInputTwo:
+      4: '~ios',
+      // blockThreeInputOne:
+      5: '~ios',
+      // blockThreeInputTwo:
+      6: '~ios',
+    },
+    ANSWER_FIELD: {
+      // answerFieldOne:
+      1: '~ios',
+      // answerFieldTwo:
+      2: '~ios',
+      // answerFieldThree:
+      3: '~ios',
+    },
+  },
 }
 
 class Percentage extends Page {
   public async isPercentageTitleDisplayed(): Promise<boolean> {
     return browser.isAndroid
-      ? await this.isElementDisplayed(percentageTitle)
-      : await this.isElementDisplayed(percentageTitleIos)
+      ? await this.isElementDisplayed(SELECTORS.ANDROID.TITLE)
+      : await this.isElementDisplayed(SELECTORS.IOS.TITLE)
   }
 
   public async getCalculateButtonsListSize(): Promise<number> {
     return browser.isAndroid
-      ? await this.getListSize(calculateButtonList)
-      : await this.getListSize(calculateButtonListIos)
+      ? await this.getListSize(SELECTORS.ANDROID.CALCULATE_BUTTON_LIST)
+      : await this.getListSize(SELECTORS.IOS.CALCULATE_BUTTON_LIST)
   }
 
-  //! buttons
-  // public async clickCalculateButtonOne(element: string): Promise<void> {
-  //   browser.isAndroid
-  //     ? await this.clickElement(calculateButtonOne)
-  //     : await this.clickElement(element)
-  // }
+  public async tapOnInput(element: string): Promise<void> {
+    await this.clickElement(element)
+  }
 
-  // public async clickCalculateButtonTwo(element: string): Promise<void> {
-  //   browser.isAndroid
-  //     ? await this.clickElement(calculateButtonTwo)
-  //     : await this.clickElement(element)
-  // }
-
-  // public async clickCalculateButtonThree(element: string): Promise<void> {
-  //   browser.isAndroid
-  //     ? await this.clickElement(calculateButtonThree)
-  //     : await this.clickElement(element)
-  // }
-
-  public async clickInput(element: string): Promise<void> {
+  public async tapOnCalculateButton(index: number): Promise<void> {
     browser.isAndroid
-      ? await this.clickElement(element)
-      : await this.clickElement('element') //!
+      ? await this.clickElement(SELECTORS.ANDROID.CALCULATE_BUTTON[index])
+      : await this.clickElement(SELECTORS.IOS.CALCULATE_BUTTON[index])
   }
 
-  public async clickCalculateButton(index: number): Promise<void> {
+  public async setInputFieldValue(index: number, value: number): Promise<void> {
+    await this.tapOnInput(SELECTORS.ANDROID.INPUT_FIELD[index])
     browser.isAndroid
-      ? await this.clickElement(calculateButtons[index])
-      : await this.clickElement(calculateButtons[index]) //!
+      ? await this.setElementInputValue(
+          SELECTORS.ANDROID.INPUT_FIELD[index],
+          value
+        )
+      : await this.setElementInputValue(SELECTORS.IOS.INPUT_FIELD[index], value)
   }
 
-  public async setInputValue(index: number, value: number): Promise<void> {
-    await this.clickInput(inputFields[index])
-    browser.isAndroid
-      ? await this.setElementInputValue(inputFields[index], value)
-      : await this.setElementInputValue(inputFields[index], value) //!
-  }
-
-  public async getResultFieldValue(index: number): Promise<string> {
+  public async getAnswerFieldValue(index: number): Promise<string> {
     return browser.isAndroid
-      ? await this.getElementText(resultFields[index])
-      : await this.getElementText(resultFields[index]) //!
+      ? await this.getElementText(SELECTORS.ANDROID.ANSWER_FIELD[index])
+      : await this.getElementText(SELECTORS.IOS.ANSWER_FIELD[index])
   }
 }
 
