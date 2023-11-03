@@ -16,7 +16,7 @@ export const config = {
       'appium:deviceName': 'VKHINVIFKZWWVW4L',
       'appium:app': join(
         process.cwd(),
-        './apps/android/All_Unit_Converter_&_Tools_base.apk'
+        './apps/android/converter-app-base.apk'
       ),
       'appium:platformVersion': '11.0',
       'appium:automationName': 'UiAutomator2',

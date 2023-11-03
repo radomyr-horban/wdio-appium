@@ -1,47 +1,23 @@
-# e2e-tests, wdio v8, appium v2, hybrid app (android, ios), browserstack
+# Task 5: Webdriver, Appium, Browserstack
 
-e2e-test template with hybrid mob apps
+#### Clone repository:
 
-```sh
+    git clone https://github.com/radomyr-horban/wdio-appium.git
 
-```
+#### Install dependencies:
 
-## Setup
+    npm ci
 
-### Install software and check out the project
-
-- Download and install Node.JS ( at least 16.17 )
-- Typescript 5+ version
-- Install Visual Studio Code
-- Clone and checkout the github project
-- npm install
-
-## Setup with Browserstack
-
-- Add .env file with next variables `BROWSERSTACK_USERNAME`, `BROWSERSTACK_ACCESS_KEY`, `BROWSERSTACK_ANDROID_APP_ID` and `BROWSERSTACK_IOS_APP_ID`
-- Sign in inside browserstack and upload your mobile apps (.apk and .ipa)
-- Update `.env` file
-- `npm run test:android:bs`
-
-### How to run the android tests on windows
-
-```sh
-npm run test:android
-```
-
-We defined a default configuration (config/wdio.android.conf.js) for Android which will be executed when you run "npm run test:android".
-
-Be sure that you have:
+## Requirments:
 
 - Install Java latest via https://www.java.com/ru/download/manual.jsp
 - Set the environment variable called `JAVA_HOME` to the jre directory (C:\Program Files\Android\Android Studio\jre\)
-- Install Node v16+ https://nodejs.org/uk
-- installed the latest Android Studio version https://developer.android.com/studio
+- Install Node v16+ https://nodejs.org/en
+- Install the latest Android Studio version https://developer.android.com/studio
 - Add `ANDROID_HOME` to path in OS system variables
 - Install Appium by command: `npm install -g appium`
 - Install Appium inspector v2+ https://github.com/appium/appium-inspector/releases
-- Install Appium drivers (uiautomator2, xcuitest and etc..; `appium driver install uiautomator2`)
-- Allow virtualization in BIOS https://www.youtube.com/watch?v=UgDxU0jZAe4
+- Install `uiautomator2` Appium driver by command: `appium driver install uiautomator2`
 - plugged in any android device into your computer. Leave it unlocked.
 - allowed USB-Debugging on the connected android device
 - run `adb devices` to check device name( device id )
@@ -49,21 +25,47 @@ Be sure that you have:
 - run `appium` in cmd
 - now you can interact with your apps through the appium inspector on your PC
 
-### Linter
+## Setup with Browserstack
 
-We use eslint to lint the typescript files. The prettier plugin in eslint tries to autoformat the code on every run.
+- Create `.env` file with the next variables:
+  - `BROWSERSTACK_USERNAME`
+  - `BROWSERSTACK_ACCESS_KEY`
+  - `BROWSERSTACK_ANDROID_APP_ID`
+  - `BROWSERSTACK_IOS_APP_ID`
+- Sign in on the `browserstack` website (https://www.browserstack.com/) and upload your mobile apps (.apk and .ipa)
+- Update `.env` file
 
-### Test structure
+## Commands
 
-All test cases should be coded inside the test folder. There you can organize tests for different apps (e.g. msb-app) and define generic classes with getters and setters to use classes those methods inside other classes.
+### Start the appium server:
+
+    appium
+
+### Run the android tests on windows:
+
+    npm run test:android
+
+### Run the ios tests:
+
+    npm run test:ios
+
+### Run the android tests on browserstack:
+
+    npm run test:android:bs
+
+### Run the ios tests on browserstack:
+
+    npm run test:ios:bs
+
+## Test structure
+
+All test cases should be coded inside the `test` folder. There you can organize tests for different apps (e.g. msb-app) and define generic classes with getters and setters to use classes those methods inside other classes.
 
 We work with the Page Object Pattern described in <https://webdriver.io/docs/pageobjects.html>. The main idea is to encapsulate logic into page classes and use the logic in the spec files to run the tests.
-For instance we defined the LoginPage and the element as attributes in a class and reuse them in the code.
 
-### Commands
+<img src="./public/folder-structure.png" width="250" alt="Folder Structure">
 
-To start the appium server run:
-`npx appium server`
+## App interface
 
-To start the tests run:
-`npm run test:android`
+  <img src="./public/interface-conversions.jpg" width="250" alt="interface-conversions">
+  <img src="./public/interface-tools.jpg" width="250" alt="interface-conversions">

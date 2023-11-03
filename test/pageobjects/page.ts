@@ -88,7 +88,6 @@ export default class Page {
   public async getElementText(element: string): Promise<string> {
     await this.waitUntilElementDisplayed(element)
     const elem = await this.getElement(element)
-    // return elem.getText()
     return elem.getAttribute('text')
   }
 
@@ -122,7 +121,6 @@ export default class Page {
 
   public async clickElement(element: string): Promise<void> {
     await this.waitUntilElementDisplayed(element)
-    // await this.scrollElementIntoView(element)
 
     const elem = await this.getElement(element)
     await elem.click()
