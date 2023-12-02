@@ -65,7 +65,11 @@ We work with the Page Object Pattern described in <https://webdriver.io/docs/pag
 
 <img src="./public/folder-structure.png" width="250" alt="Folder Structure">
 
+## App
+
+https://play.google.com/store/apps/details?id=com.digitalindeed.converter
+
 ## App interface
 
-  <img src="./public/interface-conversions.jpg" width="250" alt="interface-conversions">
-  <img src="./public/interface-tools.jpg" width="250" alt="interface-conversions">
+<img src="./public/interface-conversions.jpg" width="250" alt="interface-conversions">
+<img src="./public/interface-tools.jpg" width="250" alt="interface-conversions">
