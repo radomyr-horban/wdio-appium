@@ -1,5 +1,9 @@
 # Task 5: Webdriver, Appium, Browserstack
 
+## App
+
+https://play.google.com/store/apps/details?id=com.digitalindeed.converter
+
 #### Clone repository:
 
     git clone https://github.com/radomyr-horban/wdio-appium.git
@@ -64,10 +68,6 @@ All test cases should be coded inside the `test` folder. There you can organize 
 We work with the Page Object Pattern described in <https://webdriver.io/docs/pageobjects.html>. The main idea is to encapsulate logic into page classes and use the logic in the spec files to run the tests.
 
 <img src="./public/folder-structure.png" width="250" alt="Folder Structure">
-
-## App
-
-https://play.google.com/store/apps/details?id=com.digitalindeed.converter
 
 ## App interface
 
